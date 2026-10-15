@@ -1,28 +1,29 @@
 package ar.edu.bitacora.modelo;
 
-// Esta clase representa a un docente. Mismo patrón que Estudiante:
-public class Docente {
+// Docente "es una" Persona: hereda nombre, apellido, dni y email.
+public class Docente extends Persona {
 
+    // Solo los datos propios del docente
     private int idDocente;
     private String legajo;
-    private String nombre;
-    private String apellido;
-    private String dni;
-    private String email;
     private boolean activo = true;
 
     public Docente() {
+        super();
     }
 
     public Docente(int idDocente, String legajo, String nombre, String apellido,
                    String dni, String email, boolean activo) {
+        super(nombre, apellido, dni, email);
         this.idDocente = idDocente;
         this.legajo = legajo;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.email = email;
         this.activo = activo;
+    }
+
+    // Cada clase hija responde a su manera: acá el rol es "Docente".
+    @Override
+    public String getRol() {
+        return "Docente";
     }
 
     public int getIdDocente() {
@@ -39,38 +40,6 @@ public class Docente {
 
     public void setLegajo(String legajo) {
         this.legajo = legajo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public boolean isActivo() {

@@ -2,35 +2,35 @@ package ar.edu.bitacora.modelo;
 
 import java.time.LocalDate;
 
-// Esta clase representa a un estudiante: es el "molde" con sus datos.
-public class Estudiante {
+// Estudiante "es una" Persona: con "extends" hereda nombre, apellido, dni y email
+// (con sus get y set) sin tener que volver a escribirlos.
+public class Estudiante extends Persona {
 
+    // Acá quedan solo los datos propios del estudiante
     private int idEstudiante;
     private String legajo;
-    private String nombre;
-    private String apellido;
-    private String dni;
-    private String email;
     private LocalDate fechaNacimiento;
     private boolean activo = true;
 
-    // Constructor vacío: sirve para crear un Estudiante "en blanco"
-    // y después ir cargando sus datos con los métodos set...()
     public Estudiante() {
+        super(); // llama al constructor vacío de Persona
     }
 
-    // Constructor completo: sirve para crear un Estudiante con todos
-    // los datos de una sola vez (por ejemplo, cuando lo leemos de la base)
     public Estudiante(int idEstudiante, String legajo, String nombre, String apellido,
-                       String dni, String email, LocalDate fechaNacimiento, boolean activo) {
+                      String dni, String email, LocalDate fechaNacimiento, boolean activo) {
+        // super(...) le pasa a Persona los datos que le corresponden a ella
+        super(nombre, apellido, dni, email);
+        // el resto lo guarda Estudiante
         this.idEstudiante = idEstudiante;
         this.legajo = legajo;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.email = email;
         this.fechaNacimiento = fechaNacimiento;
         this.activo = activo;
+    }
+
+    // Implementación del método abstracto de Persona: obligatoria.
+    @Override
+    public String getRol() {
+        return "Estudiante";
     }
 
     public int getIdEstudiante() {
@@ -47,38 +47,6 @@ public class Estudiante {
 
     public void setLegajo(String legajo) {
         this.legajo = legajo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public LocalDate getFechaNacimiento() {
