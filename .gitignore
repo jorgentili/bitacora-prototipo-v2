@@ -12,3 +12,6 @@ src/main/resources/db.properties
 .project
 .settings/
 nbproject/
+
+# Exportaciones del programa
+exportaciones/

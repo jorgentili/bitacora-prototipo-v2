@@ -1,0 +1,6 @@
+﻿legajo;nota;observacion
+ALU-001;8,5;Muy buen trabajo
+ALU-002;6;Aprobado justo
+ALU-999;7;Legajo que no existe
+ALU-001;11;Nota fuera de rango
+ALU-002;abc;Nota mal escrita

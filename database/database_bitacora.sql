@@ -111,6 +111,6 @@ INSERT INTO inscripciones(id_estudiante,id_curso,fecha_inscripcion) VALUES
 (1,1,CURRENT_DATE()),(2,1,CURRENT_DATE());
 
 
-CREATE USER IF NOT EXISTS 'bitacora_app'@'localhost' IDENTIFIED BY 'Bitacora2026_segura';
+CREATE USER IF NOT EXISTS 'bitacora_app'@'localhost' IDENTIFIED BY 'CAMBIAR_CLAVE';
 GRANT SELECT, INSERT, UPDATE, DELETE ON bitacora_db.* TO 'bitacora_app'@'localhost';
 FLUSH PRIVILEGES;
